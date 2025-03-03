@@ -1,23 +1,22 @@
 import ventrie from "../src/ventrie.png"
 import { useState } from "react";
 import { NavLink } from "react-router";
-import { faPeopleCarryBox, faScrewdriverWrench, faChevronDown, faChevronRight, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { RiHome6Line, RiShoppingBag2Line, RiCheckboxBlankCircleLine, RiGroupLine, RiListCheck, RiTeamLine, RiFileListLine, RiSettings3Line, RiCheckboxBlankCircleFill } from "@remixicon/react"
+import { RiCheckboxBlankCircleLine, RiCloseLine, RiFileListLine , RiMenuLine, RiArrowDownLine, RiArrowRightLine} from "@remixicon/react";
+import { icons } from "../components/navbaricons/icons"
 import type { JSX } from "react";
 
 interface NavigationItemInterface {
   text: string;
   link: string;
-  icon?: JSX.Element;
+  icon?: JSX.Element | string;
   items?: NavigationItemInterface[];
   hasDivider?: boolean;
 }
 
 const navigationList: NavigationItemInterface[] = [
-  { text: "Dashboard", link: "/dashboard", icon: <RiHome6Line size={20} />, hasDivider: true },
+  { text: "Dashboard", link: "/dashboard", icon: icons.Home , hasDivider: true },
   {
-    text: "Orders", link: "/orders", icon: <RiShoppingBag2Line size={20} />,
+    text: "Orders", link: "/orders", icon: icons.Orders,
     items: [
       { text: "Orders List", link: "/orders/list", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Creadit & Refunds", link: "/orders/credit&Refunds", icon: <RiCheckboxBlankCircleLine size={18} /> },
@@ -25,14 +24,14 @@ const navigationList: NavigationItemInterface[] = [
     ]
   },
   {
-    text: "Customers", link: "/customers", icon: <RiGroupLine size={20} />,
+    text: "Customers", link: "/customers", icon: icons.Customers,
     items: [
       { text: "Customer List", link: "/customers/CustomerList", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Add Customer", link: "/customers/AddCustomer", icon: <RiCheckboxBlankCircleLine size={18} /> },
     ]
   },
   {
-    text: "Inventory", link: "/inventory", icon: <RiListCheck size={20} />,
+    text: "Inventory", link: "/inventory", icon: icons.Inventory,
     items: [
       { text: "Inventory List", link: "/inventory/Ilist", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Add Inventory", link: "/inventory/Addinventory", icon: <RiCheckboxBlankCircleLine size={18} /> },
@@ -42,31 +41,31 @@ const navigationList: NavigationItemInterface[] = [
     ]
   },
   {
-    text: "Suppliers", link: "/supplier", icon: <FontAwesomeIcon icon={faPeopleCarryBox} />,
+    text: "Suppliers", link: "/supplier", icon: icons.Suppliers,
     items: [
       { text: "supplier List", link: "/supplier/Slist", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Add Supplier", link: "/supplier/AddSupplier", icon: <RiCheckboxBlankCircleLine size={18} /> },
     ]
   },
   {
-    text: "Staff", link: "/supplier", icon: <RiTeamLine />, hasDivider: true,
+    text: "Staff", link: "/supplier", icon: icons.Staff, hasDivider: true,
     items: [
       { text: "staff List", link: "/supplier/Slist", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Add Staff", link: "/supplier/Addstaff", icon: <RiCheckboxBlankCircleLine size={18} /> },
     ]
   },
   { text: "Ledger", link: "/ledger", icon: <RiFileListLine size={20} /> },
-  { text: "Setting", link: "/setting", icon: <RiSettings3Line size={20} />,
+  { text: "Setting", link: "/setting", icon: icons.Settings,
     items: [
       {text: "Roles", link:"/setting/roles", icon: <RiCheckboxBlankCircleLine size={18} />},
     ]
   },
-  { text: "Tools", link: "/tools", icon: <FontAwesomeIcon icon={faScrewdriverWrench} />,
+  { text: "Tools", link: "/tools", icon: icons.Tool,
     items:[
       {text: "Stages", link:"/tools/stages", icon: <RiCheckboxBlankCircleLine size={18} />},
-      {text: "Add Stage", link:"/tools/stages/addstage", icon: <RiCheckboxBlankCircleFill size={16} className="ml-3"/>},
+      {text: "Add Stage", link:"/tools/stages/addstage", icon: <RiCheckboxBlankCircleLine size={16} className="ml-5"/>},
       {text: "Production Line", link:"/tools/productionline", icon: <RiCheckboxBlankCircleLine size={18} />},
-      {text: "Add Production Line", link:"/tools/productionline/addproductionline", icon: <RiCheckboxBlankCircleFill size={16} className="ml-3" />},
+      {text: "Add Production Line", link:"/tools/productionline/addproductionline", icon: <RiCheckboxBlankCircleLine size={16} className="ml-5" />},
     ]
   },
 
@@ -89,16 +88,16 @@ export default function SideNav() {
   return (
     <>
       {/* Mobile Menu Button */}
-      <button className="md:hidden fixed top-5 left-3 z-50 cursor-pointer bg-gray-800 text-white p-3 rounded-lg" onClick={toggleMobileMenu}>
-        <FontAwesomeIcon icon={faBars} size="lg" />
+      <button className="md:hidden fixed top-5 left-5 z-50 cursor-pointer bg-gray-800 text-white p-3 rounded-lg" onClick={toggleMobileMenu}>
+        <RiMenuLine />
       </button>
 
       {/* Sidebar */}
       <aside className={`fixed top-0 left-0 h-screen bg-white border-r border-gray-400 md:relative md:block transition-transform md:translate-x-0 ${mobileMenuopen ? "w-full translate-x-0" : "-translate-x-full"} md:w-64 md:flex flex-col z-50`}>
 
         {/* Close Button for Mobile */}
-        <button className="md:hidden absolute cursor-pointer top-4 right-4 text-gray-800" onClick={toggleMobileMenu}>
-          <FontAwesomeIcon icon={faXmark} size="lg" />
+        <button className="md:hidden absolute cursor-pointer top-4 right-4 " onClick={toggleMobileMenu}>
+          <RiCloseLine />
         </button>
 
         <div className="pt-7 pl-5 mb-8">
@@ -117,7 +116,7 @@ export default function SideNav() {
                     {item.icon && <span>{item.icon}</span>}
                     {item.text}
                   </div>
-                  <FontAwesomeIcon icon={expended === item.text ? faChevronDown : faChevronRight} className="w-4 h-4"/>
+                  {expended === item.text ? ( <RiArrowDownLine className="w-4 h-4" /> ) : ( <RiArrowRightLine className="w-4 h-4" /> )} 
                 </button>
               ) : (
                 <NavLink

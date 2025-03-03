@@ -11,7 +11,7 @@ import {
 
 export default function ProductOverviewCard() {
     return (
-        <div className="w-6xl bg-white flex flex-col gap-2 mx-auto mt-50">
+        <div className="w-6xl flex flex-col gap-2 mx-auto mt-50">
             <div>
                 <h1 className="text-lg font-semibold">Product Overview</h1>
             </div>
