@@ -6,4 +6,5 @@ export default [index("routes/SideNav.tsx"),
     route("productoverviewcard","routes/ProductOverviewCard.tsx"),
     route("partsoverview","routes/PartsOverview.tsx"),
     route("companyprofile", "routes/CompanyProfile.tsx"),
+    route("useractivity" , "routes/UserActivity.tsx")
 ] satisfies RouteConfig;

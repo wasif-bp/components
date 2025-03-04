@@ -10,7 +10,7 @@ import {
 } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 
-const notifications = [
+const standards = [
   {
     title: "10 Users",
   },
@@ -23,33 +23,34 @@ const notifications = [
 ]
 
 type CardProps = React.ComponentProps<typeof Card>
-type SliderProps = React.ComponentProps<typeof Slider>
 
 export default function CompanyProfile({ className, ...props }: CardProps) {
   return (
       <div className="ml-20 mt-20 flex flex-col gap-3">
         <Card className={cn("w-[395px] h-[300px] shadow-none border-1", className)} {...props}>
-          <CardHeader>
-            <CardTitle className="text-[#787878] text-md font-normal">Standard</CardTitle>
+          <CardHeader className="relative">
+            <div className="bg-[#D6D5D699] w-fit px-4 py-1 rounded-lg mb-0">
+              <CardTitle className="text-[#302F34A3] text-sm font-normal">Standard</CardTitle>
+            </div>
+            <div className="absolute top-6 right-4">
+              <h1 className="text-3xl font-normal">$99<span className="text-sm text-[#302F34A3] font-light pl-1">month</span></h1>
+            </div>
           </CardHeader>
-          <CardContent className="flex items-center justify-between gap-4">
-            <div>
-              {notifications.map((notification, index) => (
+          <CardContent>
+            <div className="mt-4">
+              {standards.map((item, index) => (
                 <div
                   key={index}
-                  className="mb-4 grid grid-cols-[25px_1fr] items-center pb-4 last:mb-0 last:pb-0"
+                  className="grid grid-cols-[25px_1fr] items-center pb-4 last:mb-0 last:pb-0"
                 >
-                  <span className="flex h-3 w-3 rounded-full bg-[#D8D8D8] self-center" />
+                  <span className="flex h-3 w-3 rounded-full bg-[#D9D9D9] self-center" />
                   <div className="space-y-0">
-                    <p className="text-md text-[#787878] font-medium leading-none">
-                      {notification.title}
+                    <p className="text-[#838285] text-md font-normal leading-none">
+                      {item.title}
                     </p>
                   </div>
                 </div>
               ))}
-            </div>
-            <div className="ml-auto self-start">
-              <h1 className="text-4xl font-light">$99<span className="text-sm text-[#302F34A3] font-light pl-1">month</span></h1>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
