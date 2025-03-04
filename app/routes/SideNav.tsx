@@ -18,9 +18,9 @@ const navigationList: NavigationItemInterface[] = [
   {
     text: "Orders", link: "/orders", icon: icons.Orders,
     items: [
-      { text: "Orders List", link: "/orders/list", icon: <RiCheckboxBlankCircleLine size={18} /> },
-      { text: "Creadit & Refunds", link: "/orders/credit&Refunds", icon: <RiCheckboxBlankCircleLine size={18} /> },
-      { text: "Add Order", link: "/orders/addorder", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "Orders List", link: "/orders/OrderList", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "Credit & Refunds", link: "/orders/Credit&Refunds", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "Add Order", link: "/orders/AddOrder", icon: <RiCheckboxBlankCircleLine size={18} /> },
     ]
   },
   {
@@ -33,7 +33,7 @@ const navigationList: NavigationItemInterface[] = [
   {
     text: "Inventory", link: "/inventory", icon: icons.Inventory,
     items: [
-      { text: "Inventory List", link: "/inventory/Ilist", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "Inventory List", link: "/inventory/Inventorylist", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Add Inventory", link: "/inventory/Addinventory", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Product", link: "/invnetory/product", icon: <RiCheckboxBlankCircleLine size={18} /> },
       { text: "Parts & Material", link: "/invnetory/parts&material", icon: <RiCheckboxBlankCircleLine size={18} /> },
@@ -41,17 +41,17 @@ const navigationList: NavigationItemInterface[] = [
     ]
   },
   {
-    text: "Suppliers", link: "/supplier", icon: icons.Suppliers,
+    text: "Suppliers", link: "/suppliers", icon: icons.Suppliers,
     items: [
-      { text: "supplier List", link: "/supplier/Slist", icon: <RiCheckboxBlankCircleLine size={18} /> },
-      { text: "Add Supplier", link: "/supplier/AddSupplier", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "supplier List", link: "/suppliers/Supplierslist", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "Add Supplier", link: "/suppliers/AddSupplier", icon: <RiCheckboxBlankCircleLine size={18} /> },
     ]
   },
   {
     text: "Staff", link: "/supplier", icon: icons.Staff, hasDivider: true,
     items: [
-      { text: "staff List", link: "/supplier/Slist", icon: <RiCheckboxBlankCircleLine size={18} /> },
-      { text: "Add Staff", link: "/supplier/Addstaff", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "Staff List", link: "/supplier/StaffList", icon: <RiCheckboxBlankCircleLine size={18} /> },
+      { text: "Add Staff", link: "/supplier/AddStaff", icon: <RiCheckboxBlankCircleLine size={18} /> },
     ]
   },
   { text: "Ledger", link: "/ledger", icon: <RiFileListLine size={20} /> },
